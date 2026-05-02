@@ -1,0 +1,44 @@
+# ── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.so
+.venv/
+venv/
+env/
+
+# ── Node / Frontend ────────────────────────────────────────────
+node_modules/
+platform/frontend/node_modules/
+platform/frontend/dist/
+platform/frontend/.vite/
+
+# ── IDE ─────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── OS ──────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Project: API Keys ──────────────────────────────────────────
+.env
+.env.local
+
+# ── Project: Generated Data ────────────────────────────────────
+data/
+*.db
+logs/
+reports/
+
+# ── Project: Generated Code (created by SE Agent) ──────────────
+platform/backend/app/api/
+platform/backend/app/models/
+platform/backend/app/services/
+platform/frontend/src/
+platform/frontend/tests/

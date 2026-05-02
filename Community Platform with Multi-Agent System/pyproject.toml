@@ -1,0 +1,68 @@
+[project]
+name = "community-platform-agents"
+version = "0.1.0"
+description = "Multi-agent system that autonomously builds and operates a community web platform"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+keywords = ["multi-agent", "ai-agents", "orchestrator", "llm", "fastapi"]
+
+authors = [
+    { name = "Your Name", email = "your.email@example.com" },
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM", "ARG", "RUF"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+disallow_any_unimported = false
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests", "platform/backend/tests"]
+python_files = ["test_*.py"]
+markers = [
+    "meta: tests of the agent system itself",
+    "platform: tests of the community web platform",
+    "slow: tests that take more than 30 seconds",
+    "evaluation: tests that run evaluation scenarios",
+    "llm: tests that call LLM APIs (costly)",
+]
+
+[tool.coverage.run]
+source = ["agents", "shared", "eval"]
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_typed_defaults = true
